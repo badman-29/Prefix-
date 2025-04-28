@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevDas – Web Developer</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #ffffff;
+      --accent-color: #00FF66;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    header, section, footer {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .top-buttons a {
+      background-color: var(--accent-color);
+      color: #000;
+      padding: 0.4rem 0.8rem;
+      margin-left: 0.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .top-buttons a:hover {
+      background-color: #00cc55;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      color: var(--accent-color);
+      margin-top: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: absolute;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 0 10px rgba(0, 255, 106, 0.3);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-buttons">
+      <a href="#projects">See Projects</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <img src="Prefix.png" alt="DevDas Logo" class="logo" />
+    <p>We design and build all types of IoT devices, drones, Arduino and ESP projects, and electronic solutions, and websites that grow your business — turning ideas into real working technology.<br>Simple. Fast. Innovative. Powerful.</p>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      We The Prefix is a digital and electronics creator, building powerful websites, IoT devices, Arduino and ESP-based projects, and custom drones for businesses and individuals. 
+    No fake degrees, just real results. Every project is handcrafted with heart, logic, and hustle.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Our Work</h2>
+    <div class="gallery">
+      <h3>IoT Devices</h3>
+      <br><br>
+      <img src="Work.jpg" alt="" onclick="openLightbox(this.src)">
+      <img src="Work1.jpg" alt="" onclick="openLightbox(this.src)">
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview">
+  </div>
+
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>Local Business Website Development (₹1000–₹3000)</li>
+    <li>WhatsApp Ordering System Integration</li>
+    <li>Instagram Page and Ad Design</li>
+    <li>Google Business Setup</li>
+    <li>Custom Portfolio Sites</li>
+    <li>IoT Device Development</li>
+    <li>Arduino & ESP Projects</li>
+    <li>Drone Making and Customization</li>
+    <li>Electronic Product Prototyping</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+        <p>● Phone / WhatsApp: <a href="https://wa.me/919226413588" target="_blank" style="color: #00FF66; text-decoration: none;">9226413588</a> <br>Instagram: 
+    <a href="https://www.instagram.com/prajapatikrishna06/" target="_blank" style="color: #00FF66; text-decoration: none;">
+      @prajapatikrishna06
+    </a> ~ The Krishna Prajapati</p>
+    <br>
+    <p>● Phone / WhatsApp: <a href="https://wa.me/918275603327" target="_blank"style="color: #00FF66; text-decoration: none;">8275603327</a> <br> Instagram:     <a href="https://www.instagram.com/akb._.113114/" target="_blank" style="color: #00FF66; text-decoration: none;">
+      @akb._.113114
+      </a> ~ ∆
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Prefix – Built with Passion</p>
+  </footer>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      img.src = src;
+      lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+</body>
+</html>
